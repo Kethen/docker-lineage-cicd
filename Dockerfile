@@ -200,6 +200,10 @@ WORKDIR $SRC_DIR
 ############################################
 RUN ln -sf /proc/1/fd/1 /var/log/docker.log
 
+# ext2fs_check_mount_point wants /etc/mtab
+##########################################
+RUN ln -s /proc/self/mounts /etc/mtab
+
 # Set the entry point to init.sh
 ################################
 ENTRYPOINT /root/init.sh
