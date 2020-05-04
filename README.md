@@ -1,3 +1,8 @@
+# Status
+
+LOS 17.1 signature spoofing is added
+TODO: fix los 17.1 update.zip signing
+
 # docker-lineage-cicd
 
 Docker microservice for LineageOS Continuous Integration and Continous Deployment
