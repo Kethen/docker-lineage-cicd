@@ -171,6 +171,8 @@ RUN apt-get install -y bc bison bsdmainutils build-essential ccache cgpt cron \
       libxml2-utils lsof lzop maven openjdk-8-jdk pngcrush procps python rsync \
       schedtool squashfs-tools wget xdelta3 xsltproc yasm zip zlib1g-dev
 
+RUN curl http://ftp.us.debian.org/debian/pool/main/g/git-lfs/git-lfs_2.7.1-1~bpo9+2_amd64.deb > /tmp/git-lfs.deb; if [ "$(sha256sum /tmp/git-lfs.deb | awk '{print $1}')" != "3dd61934a9fcf4a1836e7e05aca5a3c4fa7fe44a3207ea9cacbf6ce416ac993d" ]; then echo git-lfs sha256 sum mismatch; exit 1; fi; dpkg -i /tmp/git-lfs.deb; rm /tmp/git-lfs.deb
+
 RUN curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo
 RUN chmod a+x /usr/local/bin/repo
 
